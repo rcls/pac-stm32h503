@@ -1,0 +1,3 @@
+*.svd
+__pycache__/
+raw/
