@@ -5,14 +5,16 @@ import xml.etree.ElementTree as ET
 def deprefix(svd, alternates_remove, alternates_keep):
     for registers in svd.findall('.//registers'):
         for register in registers.findall('register'):
-            name = register.find('name').text
-            if not 'ALTERNATE' in name:
+            nn = register.find('name')
+            name = nn.text
+            if name in alternates_remove:
+                assert not name in alternates_keep, f'!!! {name}'
+                registers.remove(register)
                 continue
-            if not name in alternates_remove:
-                assert name in alternates_keep, f'??? {name}'
+            if name in alternates_keep:
+                nn.text = alternates_keep[name]
                 continue
-            assert not name in alternates_keep, f'!!! {name}'
-            registers.remove(register)
+            assert not 'ALTERNATE' in name, f'??? {name}'
 
     for peripheral in svd.findall('.//peripheral'):
         print(peripheral.find('name').text)

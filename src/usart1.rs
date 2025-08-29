@@ -1,29 +1,24 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    _reserved_0_CR1: [u8; 0x04],
+    pub CR1: CR1,
     pub CR2: CR2,
     pub CR3: CR3,
     pub BRR: BRR,
     pub GTPR: GTPR,
     pub RTOR: RTOR,
     pub RQR: RQR,
-    _reserved_7_ISR: [u8; 0x04],
+    pub ISR: ISR,
     pub ICR: ICR,
     pub RDR: RDR,
     pub TDR: TDR,
     pub PRESC: PRESC,
 }
 impl RegisterBlock {
-    #[doc = "0x00 - Control register 1"]
-    #[inline(always)]
-    pub const fn CR1_disabled(&self) -> &CR1_DISABLED {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().cast() }
-    }
     #[doc = "0x00 - USART control register 1 \\[alternate\\]"]
     #[inline(always)]
-    pub const fn CR1_enabled(&self) -> &CR1_ENABLED {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().cast() }
+    pub const fn CR1(&self) -> &CR1 {
+        &self.CR1
     }
     #[doc = "0x04 - USART control register 2"]
     #[inline(always)]
@@ -55,15 +50,10 @@ impl RegisterBlock {
     pub const fn RQR(&self) -> &RQR {
         &self.RQR
     }
-    #[doc = "0x1c - Interrupt and status register"]
-    #[inline(always)]
-    pub const fn ISR_disabled(&self) -> &ISR_DISABLED {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(28).cast() }
-    }
     #[doc = "0x1c - USART interrupt and status register"]
     #[inline(always)]
-    pub const fn ISR_enabled(&self) -> &ISR_ENABLED {
-        unsafe { &*core::ptr::from_ref(self).cast::<u8>().add(28).cast() }
+    pub const fn ISR(&self) -> &ISR {
+        &self.ISR
     }
     #[doc = "0x20 - USART interrupt flag clear register"]
     #[inline(always)]
@@ -86,16 +76,10 @@ impl RegisterBlock {
         &self.PRESC
     }
 }
-#[doc = "CR1_enabled (rw) register accessor: USART control register 1 \\[alternate\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`cr1_enabled::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1_enabled::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr1_enabled`] module"]
-#[doc(alias = "CR1_enabled")]
-pub type CR1_ENABLED = crate::Reg<cr1_enabled::CR1_ENABLED_SPEC>;
+#[doc = "CR1 (rw) register accessor: USART control register 1 \\[alternate\\]\n\nYou can [`read`](crate::Reg::read) this register and get [`cr1::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr1`] module"]
+pub type CR1 = crate::Reg<cr1::CR1_SPEC>;
 #[doc = "USART control register 1 \\[alternate\\]"]
-pub mod cr1_enabled;
-#[doc = "CR1_disabled (rw) register accessor: Control register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cr1_disabled::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1_disabled::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr1_disabled`] module"]
-#[doc(alias = "CR1_disabled")]
-pub type CR1_DISABLED = crate::Reg<cr1_disabled::CR1_DISABLED_SPEC>;
-#[doc = "Control register 1"]
-pub mod cr1_disabled;
+pub mod cr1;
 #[doc = "CR2 (rw) register accessor: USART control register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cr2::R`]. You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr2`] module"]
 pub type CR2 = crate::Reg<cr2::CR2_SPEC>;
 #[doc = "USART control register 2"]
@@ -120,16 +104,10 @@ pub mod rtor;
 pub type RQR = crate::Reg<rqr::RQR_SPEC>;
 #[doc = "USART request register"]
 pub mod rqr;
-#[doc = "ISR_enabled (r) register accessor: USART interrupt and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr_enabled::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@isr_enabled`] module"]
-#[doc(alias = "ISR_enabled")]
-pub type ISR_ENABLED = crate::Reg<isr_enabled::ISR_ENABLED_SPEC>;
+#[doc = "ISR (r) register accessor: USART interrupt and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@isr`] module"]
+pub type ISR = crate::Reg<isr::ISR_SPEC>;
 #[doc = "USART interrupt and status register"]
-pub mod isr_enabled;
-#[doc = "ISR_disabled (r) register accessor: Interrupt and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`isr_disabled::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@isr_disabled`] module"]
-#[doc(alias = "ISR_disabled")]
-pub type ISR_DISABLED = crate::Reg<isr_disabled::ISR_DISABLED_SPEC>;
-#[doc = "Interrupt and status register"]
-pub mod isr_disabled;
+pub mod isr;
 #[doc = "ICR (w) register accessor: USART interrupt flag clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@icr`] module"]
 pub type ICR = crate::Reg<icr::ICR_SPEC>;
 #[doc = "USART interrupt flag clear register"]

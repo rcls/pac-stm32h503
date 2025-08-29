@@ -15,29 +15,20 @@ if scriptdir != '':
 svd = ET.parse('STM32H503.svd')
 
 alternates_remove = {
-    'I3C_CR_ALTERNATE'
+    'I3C_CR_ALTERNATE',
+    'USART_CR1_disabled',
+    'USART_ISR_disabled',
+    'LPUART_CR1_disabled',
+    'LPUART_ISR_disabled',
 }
-alternates_keep = {}
+alternates_keep = {
+    'USART_CR1_enabled': 'USART_CR1',
+    'USART_ISR_enabled': 'USART_ISR',
+    'LPUART_CR1_enabled': 'LPUART_CR1',
+    'LPUART_ISR_enabled': 'LPUART_ISR',
+}
 
 deprefix(svd, alternates_remove, alternates_keep)
-
-#dma = svd.find(".//peripheral[name='DMA1']")
-#clusterfy(dma, 'CH[%s]', ['CR', 'NDTR', 'PAR', 'MAR'],
-#          [f'CCR{i} CNDTR{i} CPAR{i} CMAR{i}'.split() for i in range(1, 8)])
-
-#dmamux = svd.find(".//peripheral[name='DMAMUX']")
-#register_array(
-#    dmamux, 'C0CR', 'CCR[%s]', [f'C{i}CR' for i in range(12)]);
-
-#tamp = svd.find(".//peripheral[name='TAMP']")
-#register_array(
-#    tamp, 'BKP0R', 'BKPR[%s]', [f'BKP{i}R' for i in range(9)])
-
-#pwr = svd.find(".//peripheral[name='PWR']")
-#register_derivatives(pwr, 'PUCRA', ['PUCRB', 'PUCRC'])
-#register_derivatives(pwr, 'PDCRA', ['PDCRB', 'PDCRC'])
-
-#peripheral_derivatives(svd, 'GPIOA', ['GPIOB', 'GPIOC'])
 
 svd.write('washed.svd')
 
