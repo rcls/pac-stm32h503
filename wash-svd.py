@@ -30,6 +30,9 @@ alternates_keep = {
 
 deprefix(svd, alternates_remove, alternates_keep)
 
+usb = svd.find(".//peripheral[name='USB']")
+register_array(usb, 'CHEP0R', 'CHEPR[%s]', [f'CHEP{i}R' for i in range(8)]);
+
 svd.write('washed.svd')
 
 assert os.path.exists('wash-svd.py')
