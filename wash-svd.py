@@ -33,6 +33,10 @@ deprefix(svd, alternates_remove, alternates_keep)
 usb = svd.find(".//peripheral[name='USB']")
 register_array(usb, 'CHEP0R', 'CHEPR[%s]', [f'CHEP{i}R' for i in range(8)]);
 
+# Change the access on USB fields to read-write.
+for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
+    usb.find(f".//field[name='{F}']/access").text = 'read-write'
+
 svd.write('washed.svd')
 
 assert os.path.exists('wash-svd.py')
