@@ -1,7 +1,7 @@
-#[doc = "Register `MPCBB2_PRIVCFGR26` reader"]
-pub type R = crate::R<MPCBB2_PRIVCFGR26_SPEC>;
-#[doc = "Register `MPCBB2_PRIVCFGR26` writer"]
-pub type W = crate::W<MPCBB2_PRIVCFGR26_SPEC>;
+#[doc = "Register `MPCBB2_PRIVCFGR[%s]` reader"]
+pub type R = crate::R<MPCBB2_PRIVCFGR_SPEC>;
+#[doc = "Register `MPCBB2_PRIVCFGR[%s]` writer"]
+pub type W = crate::W<MPCBB2_PRIVCFGR_SPEC>;
 #[doc = "Privileged configuration for block y, belonging to super-block x (y = 31 to 0).\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PRIV0_A {
@@ -1863,175 +1863,175 @@ impl R {
 impl W {
     #[doc = "Bit 0 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV0(&mut self) -> PRIV0_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV0(&mut self) -> PRIV0_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV0_W::new(self, 0)
     }
     #[doc = "Bit 1 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV1(&mut self) -> PRIV1_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV1(&mut self) -> PRIV1_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV1_W::new(self, 1)
     }
     #[doc = "Bit 2 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV2(&mut self) -> PRIV2_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV2(&mut self) -> PRIV2_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV2_W::new(self, 2)
     }
     #[doc = "Bit 3 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV3(&mut self) -> PRIV3_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV3(&mut self) -> PRIV3_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV3_W::new(self, 3)
     }
     #[doc = "Bit 4 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV4(&mut self) -> PRIV4_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV4(&mut self) -> PRIV4_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV4_W::new(self, 4)
     }
     #[doc = "Bit 5 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV5(&mut self) -> PRIV5_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV5(&mut self) -> PRIV5_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV5_W::new(self, 5)
     }
     #[doc = "Bit 6 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV6(&mut self) -> PRIV6_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV6(&mut self) -> PRIV6_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV6_W::new(self, 6)
     }
     #[doc = "Bit 7 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV7(&mut self) -> PRIV7_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV7(&mut self) -> PRIV7_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV7_W::new(self, 7)
     }
     #[doc = "Bit 8 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV8(&mut self) -> PRIV8_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV8(&mut self) -> PRIV8_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV8_W::new(self, 8)
     }
     #[doc = "Bit 9 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV9(&mut self) -> PRIV9_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV9(&mut self) -> PRIV9_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV9_W::new(self, 9)
     }
     #[doc = "Bit 10 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV10(&mut self) -> PRIV10_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV10(&mut self) -> PRIV10_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV10_W::new(self, 10)
     }
     #[doc = "Bit 11 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV11(&mut self) -> PRIV11_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV11(&mut self) -> PRIV11_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV11_W::new(self, 11)
     }
     #[doc = "Bit 12 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV12(&mut self) -> PRIV12_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV12(&mut self) -> PRIV12_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV12_W::new(self, 12)
     }
     #[doc = "Bit 13 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV13(&mut self) -> PRIV13_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV13(&mut self) -> PRIV13_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV13_W::new(self, 13)
     }
     #[doc = "Bit 14 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV14(&mut self) -> PRIV14_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV14(&mut self) -> PRIV14_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV14_W::new(self, 14)
     }
     #[doc = "Bit 15 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV15(&mut self) -> PRIV15_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV15(&mut self) -> PRIV15_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV15_W::new(self, 15)
     }
     #[doc = "Bit 16 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV16(&mut self) -> PRIV16_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV16(&mut self) -> PRIV16_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV16_W::new(self, 16)
     }
     #[doc = "Bit 17 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV17(&mut self) -> PRIV17_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV17(&mut self) -> PRIV17_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV17_W::new(self, 17)
     }
     #[doc = "Bit 18 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV18(&mut self) -> PRIV18_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV18(&mut self) -> PRIV18_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV18_W::new(self, 18)
     }
     #[doc = "Bit 19 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV19(&mut self) -> PRIV19_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV19(&mut self) -> PRIV19_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV19_W::new(self, 19)
     }
     #[doc = "Bit 20 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV20(&mut self) -> PRIV20_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV20(&mut self) -> PRIV20_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV20_W::new(self, 20)
     }
     #[doc = "Bit 21 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV21(&mut self) -> PRIV21_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV21(&mut self) -> PRIV21_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV21_W::new(self, 21)
     }
     #[doc = "Bit 22 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV22(&mut self) -> PRIV22_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV22(&mut self) -> PRIV22_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV22_W::new(self, 22)
     }
     #[doc = "Bit 23 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV23(&mut self) -> PRIV23_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV23(&mut self) -> PRIV23_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV23_W::new(self, 23)
     }
     #[doc = "Bit 24 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV24(&mut self) -> PRIV24_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV24(&mut self) -> PRIV24_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV24_W::new(self, 24)
     }
     #[doc = "Bit 25 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV25(&mut self) -> PRIV25_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV25(&mut self) -> PRIV25_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV25_W::new(self, 25)
     }
     #[doc = "Bit 26 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV26(&mut self) -> PRIV26_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV26(&mut self) -> PRIV26_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV26_W::new(self, 26)
     }
     #[doc = "Bit 27 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV27(&mut self) -> PRIV27_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV27(&mut self) -> PRIV27_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV27_W::new(self, 27)
     }
     #[doc = "Bit 28 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV28(&mut self) -> PRIV28_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV28(&mut self) -> PRIV28_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV28_W::new(self, 28)
     }
     #[doc = "Bit 29 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV29(&mut self) -> PRIV29_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV29(&mut self) -> PRIV29_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV29_W::new(self, 29)
     }
     #[doc = "Bit 30 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV30(&mut self) -> PRIV30_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV30(&mut self) -> PRIV30_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV30_W::new(self, 30)
     }
     #[doc = "Bit 31 - Privileged configuration for block y, belonging to super-block x (y = 31 to 0)."]
     #[inline(always)]
-    pub fn PRIV31(&mut self) -> PRIV31_W<'_, MPCBB2_PRIVCFGR26_SPEC> {
+    pub fn PRIV31(&mut self) -> PRIV31_W<'_, MPCBB2_PRIVCFGR_SPEC> {
         PRIV31_W::new(self, 31)
     }
 }
-#[doc = "GTZC1 SRAM2 MPCBB privileged configuration for super-block 26 register\n\nYou can [`read`](crate::Reg::read) this register and get [`mpcbb2_privcfgr26::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`mpcbb2_privcfgr26::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct MPCBB2_PRIVCFGR26_SPEC;
-impl crate::RegisterSpec for MPCBB2_PRIVCFGR26_SPEC {
+#[doc = "GTZC1 SRAM2 MPCBB privileged configuration for super-block 0 register\n\nYou can [`read`](crate::Reg::read) this register and get [`mpcbb2_privcfgr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`mpcbb2_privcfgr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct MPCBB2_PRIVCFGR_SPEC;
+impl crate::RegisterSpec for MPCBB2_PRIVCFGR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`mpcbb2_privcfgr26::R`](R) reader structure"]
-impl crate::Readable for MPCBB2_PRIVCFGR26_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`mpcbb2_privcfgr26::W`](W) writer structure"]
-impl crate::Writable for MPCBB2_PRIVCFGR26_SPEC {
+#[doc = "`read()` method returns [`mpcbb2_privcfgr::R`](R) reader structure"]
+impl crate::Readable for MPCBB2_PRIVCFGR_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`mpcbb2_privcfgr::W`](W) writer structure"]
+impl crate::Writable for MPCBB2_PRIVCFGR_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets MPCBB2_PRIVCFGR26 to value 0"]
-impl crate::Resettable for MPCBB2_PRIVCFGR26_SPEC {}
+#[doc = "`reset()` method sets MPCBB2_PRIVCFGR[%s] to value 0"]
+impl crate::Resettable for MPCBB2_PRIVCFGR_SPEC {}

@@ -38,12 +38,13 @@ def deprefix(svd, alternates_remove, alternates_keep):
             name.text = name.text.removeprefix(common_prefix)
 
 def register_array(peripheral, first, pattern, items, increment = None):
-    assert first in items
+    assert first in items, f'{first} {items}'
     registers = peripheral.find('registers')
     assert registers is not None
     prototype = registers.find(f"register[name='{first}']")
     print(registers.find('register'))
-    assert prototype is not None
+    assert prototype is not None, [
+        name.text for name in registers.findall('register/name')]
     prototype.find('name').text = pattern
     assert prototype.find('dim') == None
     assert prototype.find('dimIncrement') == None
