@@ -1,7 +1,7 @@
-#[doc = "Register `C5CR` reader"]
-pub type R = crate::R<C5CR_SPEC>;
-#[doc = "Register `C5CR` writer"]
-pub type W = crate::W<C5CR_SPEC>;
+#[doc = "Register `CR` reader"]
+pub type R = crate::R<CR_SPEC>;
+#[doc = "Register `CR` writer"]
+pub type W = crate::W<CR_SPEC>;
 #[doc = "enable Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: this bit is deasserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, for example if LSM=1 at the end of a single execution of the LLI). Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum EN_A {
@@ -767,80 +767,80 @@ impl R {
 impl W {
     #[doc = "Bit 0 - enable Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 0. Else: this bit is deasserted by hardware when there is a transfer error (master bus error or user setting error) or when there is a channel transfer complete (channel ready to be configured, for example if LSM=1 at the end of a single execution of the LLI). Else, this bit can be asserted by software. Writing 0 into this EN bit is ignored."]
     #[inline(always)]
-    pub fn EN(&mut self) -> EN_W<'_, C5CR_SPEC> {
+    pub fn EN(&mut self) -> EN_W<'_, CR_SPEC> {
         EN_W::new(self, 0)
     }
     #[doc = "Bit 1 - reset This bit is write only. Writing 0 has no impact. Writing 1 implies the reset of the following: the FIFO, the channel internal state, SUSP and EN bits (whatever is written receptively in bit 2 and bit 0). The reset is effective when the channel is in steady state, meaning one of the following: - active channel in suspended state (GPDMA_CxSR.SUSPF = 1 and GPDMA_CxSR.IDLEF = GPDMA_CxCR.EN = 1) - channel in disabled state (GPDMA_CxSR.IDLEF = 1 and GPDMA_CxCR.EN = 0). After writing a RESET, to continue using this channel, the user must explicitly reconfigure the channel including the hardware-modified configuration registers (GPDMA_CxBR1, GPDMA_CxSAR and GPDMA_CxDAR) before enabling again the channel (see the programming sequence in Figure 44)."]
     #[inline(always)]
-    pub fn RESET(&mut self) -> RESET_W<'_, C5CR_SPEC> {
+    pub fn RESET(&mut self) -> RESET_W<'_, CR_SPEC> {
         RESET_W::new(self, 1)
     }
     #[doc = "Bit 2 - suspend Writing 1 into the field RESET (bit 1) causes the hardware to de-assert this bit, whatever is written into this bit 2. Else: Software must write 1 in order to suspend an active channel (channel with an ongoing GPDMA transfer over its master ports). The software must write 0 in order to resume a suspended channel, following the programming sequence detailed in Figure 43."]
     #[inline(always)]
-    pub fn SUSP(&mut self) -> SUSP_W<'_, C5CR_SPEC> {
+    pub fn SUSP(&mut self) -> SUSP_W<'_, CR_SPEC> {
         SUSP_W::new(self, 2)
     }
     #[doc = "Bit 8 - transfer complete interrupt enable"]
     #[inline(always)]
-    pub fn TCIE(&mut self) -> TCIE_W<'_, C5CR_SPEC> {
+    pub fn TCIE(&mut self) -> TCIE_W<'_, CR_SPEC> {
         TCIE_W::new(self, 8)
     }
     #[doc = "Bit 9 - half transfer complete interrupt enable"]
     #[inline(always)]
-    pub fn HTIE(&mut self) -> HTIE_W<'_, C5CR_SPEC> {
+    pub fn HTIE(&mut self) -> HTIE_W<'_, CR_SPEC> {
         HTIE_W::new(self, 9)
     }
     #[doc = "Bit 10 - data transfer error interrupt enable"]
     #[inline(always)]
-    pub fn DTEIE(&mut self) -> DTEIE_W<'_, C5CR_SPEC> {
+    pub fn DTEIE(&mut self) -> DTEIE_W<'_, CR_SPEC> {
         DTEIE_W::new(self, 10)
     }
     #[doc = "Bit 11 - update link transfer error interrupt enable"]
     #[inline(always)]
-    pub fn ULEIE(&mut self) -> ULEIE_W<'_, C5CR_SPEC> {
+    pub fn ULEIE(&mut self) -> ULEIE_W<'_, CR_SPEC> {
         ULEIE_W::new(self, 11)
     }
     #[doc = "Bit 12 - user setting error interrupt enable"]
     #[inline(always)]
-    pub fn USEIE(&mut self) -> USEIE_W<'_, C5CR_SPEC> {
+    pub fn USEIE(&mut self) -> USEIE_W<'_, CR_SPEC> {
         USEIE_W::new(self, 12)
     }
     #[doc = "Bit 13 - completed suspension interrupt enable"]
     #[inline(always)]
-    pub fn SUSPIE(&mut self) -> SUSPIE_W<'_, C5CR_SPEC> {
+    pub fn SUSPIE(&mut self) -> SUSPIE_W<'_, CR_SPEC> {
         SUSPIE_W::new(self, 13)
     }
     #[doc = "Bit 14 - trigger overrun interrupt enable"]
     #[inline(always)]
-    pub fn TOIE(&mut self) -> TOIE_W<'_, C5CR_SPEC> {
+    pub fn TOIE(&mut self) -> TOIE_W<'_, CR_SPEC> {
         TOIE_W::new(self, 14)
     }
     #[doc = "Bit 16 - Link step mode First the (possible 1D/repeated) block transfer is executed as defined by the current internal register file until GPDMA_CxBR1.BNDT\\[15:0\\] = 0 and GPDMA_CxBR1.BRC\\[10:0\\] = 0. Secondly the next linked-list data structure is conditionally uploaded from memory as defined by GPDMA_CxLLR. Then channel execution is completed. Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
     #[inline(always)]
-    pub fn LSM(&mut self) -> LSM_W<'_, C5CR_SPEC> {
+    pub fn LSM(&mut self) -> LSM_W<'_, CR_SPEC> {
         LSM_W::new(self, 16)
     }
     #[doc = "Bit 17 - linked-list allocated port This bit is used to allocate the master port for the update of the GPDMA linked-list registers from the memory. Note: This bit must be written when EN=0. This bit is read-only when EN=1."]
     #[inline(always)]
-    pub fn LAP(&mut self) -> LAP_W<'_, C5CR_SPEC> {
+    pub fn LAP(&mut self) -> LAP_W<'_, CR_SPEC> {
         LAP_W::new(self, 17)
     }
     #[doc = "Bits 22:23 - priority level of the channel x GPDMA transfer versus others Note: This bit must be written when EN = 0. This bit is read-only when EN = 1."]
     #[inline(always)]
-    pub fn PRIO(&mut self) -> PRIO_W<'_, C5CR_SPEC> {
+    pub fn PRIO(&mut self) -> PRIO_W<'_, CR_SPEC> {
         PRIO_W::new(self, 22)
     }
 }
-#[doc = "GPDMA channel 5 control register\n\nYou can [`read`](crate::Reg::read) this register and get [`c5cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c5cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct C5CR_SPEC;
-impl crate::RegisterSpec for C5CR_SPEC {
+#[doc = "GPDMA channel 7 control register\n\nYou can [`read`](crate::Reg::read) this register and get [`cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CR_SPEC;
+impl crate::RegisterSpec for CR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`c5cr::R`](R) reader structure"]
-impl crate::Readable for C5CR_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`c5cr::W`](W) writer structure"]
-impl crate::Writable for C5CR_SPEC {
+#[doc = "`read()` method returns [`cr::R`](R) reader structure"]
+impl crate::Readable for CR_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`cr::W`](W) writer structure"]
+impl crate::Writable for CR_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets C5CR to value 0"]
-impl crate::Resettable for C5CR_SPEC {}
+#[doc = "`reset()` method sets CR to value 0"]
+impl crate::Resettable for CR_SPEC {}

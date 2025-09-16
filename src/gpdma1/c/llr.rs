@@ -59,6 +59,112 @@ where
         self.variant(ULL_A::B_0x1)
     }
 }
+#[doc = "Update GPDMA_CxBR2 from memory This bit controls the update of GPDMA_CxBR2 from the memory during the link transfer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum UB2_A {
+    #[doc = "0: no GPDMA_CxBR2 update"]
+    B_0x0 = 0,
+    #[doc = "1: GPDMA_CxBR2 update"]
+    B_0x1 = 1,
+}
+impl From<UB2_A> for bool {
+    #[inline(always)]
+    fn from(variant: UB2_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `UB2` reader - Update GPDMA_CxBR2 from memory This bit controls the update of GPDMA_CxBR2 from the memory during the link transfer."]
+pub type UB2_R = crate::BitReader<UB2_A>;
+impl UB2_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> UB2_A {
+        match self.bits {
+            false => UB2_A::B_0x0,
+            true => UB2_A::B_0x1,
+        }
+    }
+    #[doc = "no GPDMA_CxBR2 update"]
+    #[inline(always)]
+    pub fn is_B_0x0(&self) -> bool {
+        *self == UB2_A::B_0x0
+    }
+    #[doc = "GPDMA_CxBR2 update"]
+    #[inline(always)]
+    pub fn is_B_0x1(&self) -> bool {
+        *self == UB2_A::B_0x1
+    }
+}
+#[doc = "Field `UB2` writer - Update GPDMA_CxBR2 from memory This bit controls the update of GPDMA_CxBR2 from the memory during the link transfer."]
+pub type UB2_W<'a, REG> = crate::BitWriter<'a, REG, UB2_A>;
+impl<'a, REG> UB2_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "no GPDMA_CxBR2 update"]
+    #[inline(always)]
+    pub fn B_0x0(self) -> &'a mut crate::W<REG> {
+        self.variant(UB2_A::B_0x0)
+    }
+    #[doc = "GPDMA_CxBR2 update"]
+    #[inline(always)]
+    pub fn B_0x1(self) -> &'a mut crate::W<REG> {
+        self.variant(UB2_A::B_0x1)
+    }
+}
+#[doc = "Update GPDMA_CxTR3 from memory This bit controls the update of GPDMA_CxTR3 from the memory during the link transfer.\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum UT3_A {
+    #[doc = "0: no GPDMA_CxTR3 update"]
+    B_0x0 = 0,
+    #[doc = "1: GPDMA_CxTR3 update"]
+    B_0x1 = 1,
+}
+impl From<UT3_A> for bool {
+    #[inline(always)]
+    fn from(variant: UT3_A) -> Self {
+        variant as u8 != 0
+    }
+}
+#[doc = "Field `UT3` reader - Update GPDMA_CxTR3 from memory This bit controls the update of GPDMA_CxTR3 from the memory during the link transfer."]
+pub type UT3_R = crate::BitReader<UT3_A>;
+impl UT3_R {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> UT3_A {
+        match self.bits {
+            false => UT3_A::B_0x0,
+            true => UT3_A::B_0x1,
+        }
+    }
+    #[doc = "no GPDMA_CxTR3 update"]
+    #[inline(always)]
+    pub fn is_B_0x0(&self) -> bool {
+        *self == UT3_A::B_0x0
+    }
+    #[doc = "GPDMA_CxTR3 update"]
+    #[inline(always)]
+    pub fn is_B_0x1(&self) -> bool {
+        *self == UT3_A::B_0x1
+    }
+}
+#[doc = "Field `UT3` writer - Update GPDMA_CxTR3 from memory This bit controls the update of GPDMA_CxTR3 from the memory during the link transfer."]
+pub type UT3_W<'a, REG> = crate::BitWriter<'a, REG, UT3_A>;
+impl<'a, REG> UT3_W<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+{
+    #[doc = "no GPDMA_CxTR3 update"]
+    #[inline(always)]
+    pub fn B_0x0(self) -> &'a mut crate::W<REG> {
+        self.variant(UT3_A::B_0x0)
+    }
+    #[doc = "GPDMA_CxTR3 update"]
+    #[inline(always)]
+    pub fn B_0x1(self) -> &'a mut crate::W<REG> {
+        self.variant(UT3_A::B_0x1)
+    }
+}
 #[doc = "Update GPDMA_CxDAR register from memory This bit is used to control the update of GPDMA_CxDAR from the memory during the link transfer.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum UDA_A {
@@ -335,6 +441,16 @@ impl R {
     pub fn ULL(&self) -> ULL_R {
         ULL_R::new(((self.bits >> 16) & 1) != 0)
     }
+    #[doc = "Bit 25 - Update GPDMA_CxBR2 from memory This bit controls the update of GPDMA_CxBR2 from the memory during the link transfer."]
+    #[inline(always)]
+    pub fn UB2(&self) -> UB2_R {
+        UB2_R::new(((self.bits >> 25) & 1) != 0)
+    }
+    #[doc = "Bit 26 - Update GPDMA_CxTR3 from memory This bit controls the update of GPDMA_CxTR3 from the memory during the link transfer."]
+    #[inline(always)]
+    pub fn UT3(&self) -> UT3_R {
+        UT3_R::new(((self.bits >> 26) & 1) != 0)
+    }
     #[doc = "Bit 27 - Update GPDMA_CxDAR register from memory This bit is used to control the update of GPDMA_CxDAR from the memory during the link transfer."]
     #[inline(always)]
     pub fn UDA(&self) -> UDA_R {
@@ -372,6 +488,16 @@ impl W {
     pub fn ULL(&mut self) -> ULL_W<'_, LLR_SPEC> {
         ULL_W::new(self, 16)
     }
+    #[doc = "Bit 25 - Update GPDMA_CxBR2 from memory This bit controls the update of GPDMA_CxBR2 from the memory during the link transfer."]
+    #[inline(always)]
+    pub fn UB2(&mut self) -> UB2_W<'_, LLR_SPEC> {
+        UB2_W::new(self, 25)
+    }
+    #[doc = "Bit 26 - Update GPDMA_CxTR3 from memory This bit controls the update of GPDMA_CxTR3 from the memory during the link transfer."]
+    #[inline(always)]
+    pub fn UT3(&mut self) -> UT3_W<'_, LLR_SPEC> {
+        UT3_W::new(self, 26)
+    }
     #[doc = "Bit 27 - Update GPDMA_CxDAR register from memory This bit is used to control the update of GPDMA_CxDAR from the memory during the link transfer."]
     #[inline(always)]
     pub fn UDA(&mut self) -> UDA_W<'_, LLR_SPEC> {
@@ -398,7 +524,7 @@ impl W {
         UT1_W::new(self, 31)
     }
 }
-#[doc = "GPDMA channel 0 linked-list address register\n\nYou can [`read`](crate::Reg::read) this register and get [`llr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`llr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPDMA channel 7 alternate linked-list address register\n\nYou can [`read`](crate::Reg::read) this register and get [`llr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`llr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct LLR_SPEC;
 impl crate::RegisterSpec for LLR_SPEC {
     type Ux = u32;

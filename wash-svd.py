@@ -45,9 +45,13 @@ for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
 
 # DMA....
 dma = svd.find(".//peripheral[name='GPDMA1']")
-dma_ch_regs = ['LBAR', 'TR1', 'TR2', 'BR1', 'SAR', 'DAR', 'LLR']
+dma_ch_regs = ['LBAR', 'FCR', 'SR', 'CR', 'TR1', 'TR2', 'BR1', 'SAR', 'DAR',
+               'TR3', 'BR2', 'LLR']
 clusterfy(dma, 'C[%s]', dma_ch_regs,
-          [[f'C{i}{r}' for r in dma_ch_regs] for i in range(0, 8)])
+          [[f'C{i}{r}' for r in dma_ch_regs] for i in range(0, 8)],
+          proto_index = 7)
+
+#peripheral_derivatives(svd, 'GPIOA', ['GPIOB', 'GPIOC', 'GPIOH'])
 
 svd.write('washed.svd')
 

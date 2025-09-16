@@ -86,7 +86,8 @@ def num_field(n, f):
 def addressoffset(n):
     return num_field(n, 'addressOffset')
 
-def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]]):
+def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
+              proto_index:int = 0):
     registers = peripheral.find('registers')
     assert registers is not None
 
@@ -106,16 +107,20 @@ def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]]):
     base = addressoffset(rep_regs[0][0])
     stride = addressoffset(rep_regs[1][0]) - base
     # Not sure if this is essential.
-    for r, s in zip(rep_regs[0][:-1], rep_regs[0][1:]):
-        print(r, s)
-        assert addressoffset(r) <= addressoffset(s)
+    #for r, s in zip(rep_regs[0][:-1], rep_regs[0][1:]):
+    #    print(r, s, r and r.find('name').text, s and s.find('name').text)
+    #    assert addressoffset(r) <= addressoffset(s)
     # Check that the addresses all match for clusterification.
-    for rr, ss in zip(rep_regs[:-1], rep_regs[1:]):
-        for r, s in zip(rr, ss):
-            assert addressoffset(s) - addressoffset(r) == stride
+    proto_regs = rep_regs[proto_index]
+    for i, rr in enumerate(rep_regs):
+        for r, s in zip(rr, proto_regs):
+            if r == None:
+                continue
+            assert addressoffset(r) - addressoffset(s) \
+                == stride * (i - proto_index)
             assert num_field(r, 'size') == num_field(s, 'size')
     # Now build the cluster.
-    # Ugh...
+    # Ugh...  place it in order.
     index = None
     for n, e in enumerate(registers):
         if e == rep_regs[0][0]:
@@ -127,14 +132,16 @@ def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]]):
     registers.insert(index, cluster)
     for rr in rep_regs:
         for r in rr:
-            registers.remove(r)
+            if r is not None:
+                registers.remove(r)
     ET.SubElement(cluster, 'dim').text = str(len(rep_regs))
     ET.SubElement(cluster, 'dimIncrement').text = str(stride)
     ET.SubElement(cluster, 'name').text = name
     ET.SubElement(cluster, 'description').text = f'Cluster for {name}'
     ET.SubElement(cluster, 'addressOffset').text = f'{base:#x}'
-    for r, n in zip(rep_regs[0], fields):
+    proto_base = addressoffset(rep_regs[proto_index][0])
+    for r, n in zip(rep_regs[proto_index], fields):
         cluster.append(r)
         r.find('name').text = n
         r.find('displayName').text = n
-        r.find('addressOffset').text = hex(addressoffset(r) - base)
+        r.find('addressOffset').text = hex(addressoffset(r) - proto_base)

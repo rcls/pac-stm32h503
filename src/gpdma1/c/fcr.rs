@@ -1,5 +1,5 @@
-#[doc = "Register `C3FCR` writer"]
-pub type W = crate::W<C3FCR_SPEC>;
+#[doc = "Register `FCR` writer"]
+pub type W = crate::W<FCR_SPEC>;
 #[doc = "transfer complete flag clear\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum TCF_A {
@@ -220,48 +220,48 @@ where
 impl W {
     #[doc = "Bit 8 - transfer complete flag clear"]
     #[inline(always)]
-    pub fn TCF(&mut self) -> TCF_W<'_, C3FCR_SPEC> {
+    pub fn TCF(&mut self) -> TCF_W<'_, FCR_SPEC> {
         TCF_W::new(self, 8)
     }
     #[doc = "Bit 9 - half transfer flag clear"]
     #[inline(always)]
-    pub fn HTF(&mut self) -> HTF_W<'_, C3FCR_SPEC> {
+    pub fn HTF(&mut self) -> HTF_W<'_, FCR_SPEC> {
         HTF_W::new(self, 9)
     }
     #[doc = "Bit 10 - data transfer error flag clear"]
     #[inline(always)]
-    pub fn DTEF(&mut self) -> DTEF_W<'_, C3FCR_SPEC> {
+    pub fn DTEF(&mut self) -> DTEF_W<'_, FCR_SPEC> {
         DTEF_W::new(self, 10)
     }
     #[doc = "Bit 11 - update link transfer error flag clear"]
     #[inline(always)]
-    pub fn ULEF(&mut self) -> ULEF_W<'_, C3FCR_SPEC> {
+    pub fn ULEF(&mut self) -> ULEF_W<'_, FCR_SPEC> {
         ULEF_W::new(self, 11)
     }
     #[doc = "Bit 12 - user setting error flag clear"]
     #[inline(always)]
-    pub fn USEF(&mut self) -> USEF_W<'_, C3FCR_SPEC> {
+    pub fn USEF(&mut self) -> USEF_W<'_, FCR_SPEC> {
         USEF_W::new(self, 12)
     }
     #[doc = "Bit 13 - completed suspension flag clear"]
     #[inline(always)]
-    pub fn SUSPF(&mut self) -> SUSPF_W<'_, C3FCR_SPEC> {
+    pub fn SUSPF(&mut self) -> SUSPF_W<'_, FCR_SPEC> {
         SUSPF_W::new(self, 13)
     }
     #[doc = "Bit 14 - trigger overrun flag clear"]
     #[inline(always)]
-    pub fn TOF(&mut self) -> TOF_W<'_, C3FCR_SPEC> {
+    pub fn TOF(&mut self) -> TOF_W<'_, FCR_SPEC> {
         TOF_W::new(self, 14)
     }
 }
-#[doc = "GPDMA channel 3 flag clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c3fcr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct C3FCR_SPEC;
-impl crate::RegisterSpec for C3FCR_SPEC {
+#[doc = "GPDMA channel 7 flag clear register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`fcr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct FCR_SPEC;
+impl crate::RegisterSpec for FCR_SPEC {
     type Ux = u32;
 }
-#[doc = "`write(|w| ..)` method takes [`c3fcr::W`](W) writer structure"]
-impl crate::Writable for C3FCR_SPEC {
+#[doc = "`write(|w| ..)` method takes [`fcr::W`](W) writer structure"]
+impl crate::Writable for FCR_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets C3FCR to value 0"]
-impl crate::Resettable for C3FCR_SPEC {}
+#[doc = "`reset()` method sets FCR to value 0"]
+impl crate::Resettable for FCR_SPEC {}

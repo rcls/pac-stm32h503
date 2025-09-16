@@ -1,5 +1,5 @@
-#[doc = "Register `C6SR` reader"]
-pub type R = crate::R<C6SR_SPEC>;
+#[doc = "Register `SR` reader"]
+pub type R = crate::R<SR_SPEC>;
 #[doc = "idle flag This idle flag is deasserted by hardware when the channel is enabled (GPDMA_CxCR.EN = 1) with a valid channel configuration (no USEF to be immediately reported). This idle flag is asserted after hard reset or by hardware when the channel is back in idle state (in suspended or disabled state).\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum IDLEF_A {
@@ -337,14 +337,14 @@ impl R {
         FIFOL_R::new(((self.bits >> 16) & 0xff) as u8)
     }
 }
-#[doc = "GPDMA channel 6 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`c6sr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct C6SR_SPEC;
-impl crate::RegisterSpec for C6SR_SPEC {
+#[doc = "GPDMA channel 7 status register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct SR_SPEC;
+impl crate::RegisterSpec for SR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`c6sr::R`](R) reader structure"]
-impl crate::Readable for C6SR_SPEC {}
-#[doc = "`reset()` method sets C6SR to value 0x01"]
-impl crate::Resettable for C6SR_SPEC {
+#[doc = "`read()` method returns [`sr::R`](R) reader structure"]
+impl crate::Readable for SR_SPEC {}
+#[doc = "`reset()` method sets SR to value 0x01"]
+impl crate::Resettable for SR_SPEC {
     const RESET_VALUE: u32 = 0x01;
 }
