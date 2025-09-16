@@ -1,7 +1,7 @@
-#[doc = "Register `C3TR2` reader"]
-pub type R = crate::R<C3TR2_SPEC>;
-#[doc = "Register `C3TR2` writer"]
-pub type W = crate::W<C3TR2_SPEC>;
+#[doc = "Register `TR2` reader"]
+pub type R = crate::R<TR2_SPEC>;
+#[doc = "Register `TR2` writer"]
+pub type W = crate::W<TR2_SPEC>;
 #[doc = "Field `REQSEL` reader - GPDMA hardware request selection These bits are ignored if channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer). Else, the selected hardware request is internally taken into account as per Section 14.3.4. The user must not assign a same input hardware request (same REQSEL\\[7:0\\] value) to different active GPDMA channels (GPDMA_CxCR.EN = 1 and GPDMA_CxTR2.SWREQ = 0 for these channels). GPDMA is not intended to hardware support the case of simultaneous enabled channels incorrectly configured with a same hardware peripheral request signal, and there is no user setting error reporting."]
 pub type REQSEL_R = crate::FieldReader;
 #[doc = "Field `REQSEL` writer - GPDMA hardware request selection These bits are ignored if channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer). Else, the selected hardware request is internally taken into account as per Section 14.3.4. The user must not assign a same input hardware request (same REQSEL\\[7:0\\] value) to different active GPDMA channels (GPDMA_CxCR.EN = 1 and GPDMA_CxTR2.SWREQ = 0 for these channels). GPDMA is not intended to hardware support the case of simultaneous enabled channels incorrectly configured with a same hardware peripheral request signal, and there is no user setting error reporting."]
@@ -530,60 +530,60 @@ impl R {
 impl W {
     #[doc = "Bits 0:7 - GPDMA hardware request selection These bits are ignored if channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer). Else, the selected hardware request is internally taken into account as per Section 14.3.4. The user must not assign a same input hardware request (same REQSEL\\[7:0\\] value) to different active GPDMA channels (GPDMA_CxCR.EN = 1 and GPDMA_CxTR2.SWREQ = 0 for these channels). GPDMA is not intended to hardware support the case of simultaneous enabled channels incorrectly configured with a same hardware peripheral request signal, and there is no user setting error reporting."]
     #[inline(always)]
-    pub fn REQSEL(&mut self) -> REQSEL_W<'_, C3TR2_SPEC> {
+    pub fn REQSEL(&mut self) -> REQSEL_W<'_, TR2_SPEC> {
         REQSEL_W::new(self, 0)
     }
     #[doc = "Bit 9 - software request This bit is internally taken into account when GPDMA_CxCR.EN is asserted."]
     #[inline(always)]
-    pub fn SWREQ(&mut self) -> SWREQ_W<'_, C3TR2_SPEC> {
+    pub fn SWREQ(&mut self) -> SWREQ_W<'_, TR2_SPEC> {
         SWREQ_W::new(self, 9)
     }
     #[doc = "Bit 10 - destination hardware request This bit is ignored if channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer). Else: Note: If the channel x is activated (GPDMA_CxCR.EN is asserted) with SWREQ = 0 and PFREQ = 1 (peripheral hardware request with peripheral flow-control mode), any software assertion to this DREQ bit is ignored: in peripheral flow-control mode, only a peripheral-to-memory transfer is supported."]
     #[inline(always)]
-    pub fn DREQ(&mut self) -> DREQ_W<'_, C3TR2_SPEC> {
+    pub fn DREQ(&mut self) -> DREQ_W<'_, TR2_SPEC> {
         DREQ_W::new(self, 10)
     }
     #[doc = "Bit 11 - Block hardware request If the channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer), this bit is ignored. Else:"]
     #[inline(always)]
-    pub fn BREQ(&mut self) -> BREQ_W<'_, C3TR2_SPEC> {
+    pub fn BREQ(&mut self) -> BREQ_W<'_, TR2_SPEC> {
         BREQ_W::new(self, 11)
     }
     #[doc = "Bit 12 - Hardware request in peripheral flow control mode Important: If a given channel x is not implemented with this feature, this bit is reserved and PFREQ is not present (see Section 14.3.2 for the list of the implemented channels with this feature. If the channel x is activated (GPDMA_CxCR.EN asserted) with SWREQ = 1 (software request for a memory-to-memory transfer), this bit is ignored. Else: Note: In peripheral flow control mode, there are the following restrictions: Note: - no 2D/repeated block support (GPDMA_CxBR1.BRC\\[10:0\\] must be set to 0) Note: - the peripheral must be set as the source of the transfer (DREQ = 0). Note: - data packing to a wider destination width is not supported (if destination width source data width, GPDMA_CxTR1.PAM\\[1\\] must be set to 0). Note: - GPDMA_CxBR1.BNDT\\[15:0\\] must be programmed as a multiple of the source (peripheral) burst size."]
     #[inline(always)]
-    pub fn PFREQ(&mut self) -> PFREQ_W<'_, C3TR2_SPEC> {
+    pub fn PFREQ(&mut self) -> PFREQ_W<'_, TR2_SPEC> {
         PFREQ_W::new(self, 12)
     }
     #[doc = "Bits 14:15 - trigger mode These bits define the transfer granularity for its conditioning by the trigger."]
     #[inline(always)]
-    pub fn TRIGM(&mut self) -> TRIGM_W<'_, C3TR2_SPEC> {
+    pub fn TRIGM(&mut self) -> TRIGM_W<'_, TR2_SPEC> {
         TRIGM_W::new(self, 14)
     }
     #[doc = "Bits 16:21 - trigger event input selection These bits select the trigger event input of the GPDMA transfer (as per Section 14.3.7), with an active trigger event if TRIGPOL\\[1:0\\] different 00."]
     #[inline(always)]
-    pub fn TRIGSEL(&mut self) -> TRIGSEL_W<'_, C3TR2_SPEC> {
+    pub fn TRIGSEL(&mut self) -> TRIGSEL_W<'_, TR2_SPEC> {
         TRIGSEL_W::new(self, 16)
     }
     #[doc = "Bits 24:25 - trigger event polarity These bits define the polarity of the selected trigger event input defined by TRIGSEL\\[5:0\\]."]
     #[inline(always)]
-    pub fn TRIGPOL(&mut self) -> TRIGPOL_W<'_, C3TR2_SPEC> {
+    pub fn TRIGPOL(&mut self) -> TRIGPOL_W<'_, TR2_SPEC> {
         TRIGPOL_W::new(self, 24)
     }
     #[doc = "Bits 30:31 - transfer complete event mode These bits define the transfer granularity for the transfer complete and half transfer complete events generation. Note: If the initial LLI 0 data transfer is null/void (directly programmed by the internal register file with GPDMA_CxBR1.BNDT\\[15:0\\] = 0), then neither the complete transfer event nor the half transfer event is generated. Note: If the initial LLI 0 data transfer is null/void (directly programmed by the internal register file with GPDMA_CxBR1.BNDT\\[15:0\\] = 0), then neither the complete transfer event nor the half transfer event is generated. Note: If the initial LLI 0 data transfer is null/void (i.e. directly programmed by the internal register file with GPDMA_CxBR1.BNDT\\[15:0\\] =0 ), then the half transfer event is not generated, and the transfer complete event is generated when is completed the loading of the LLI 1 ."]
     #[inline(always)]
-    pub fn TCEM(&mut self) -> TCEM_W<'_, C3TR2_SPEC> {
+    pub fn TCEM(&mut self) -> TCEM_W<'_, TR2_SPEC> {
         TCEM_W::new(self, 30)
     }
 }
-#[doc = "GPDMA channel 3 transfer register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`c3tr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c3tr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct C3TR2_SPEC;
-impl crate::RegisterSpec for C3TR2_SPEC {
+#[doc = "GPDMA channel 0 transfer register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`tr2::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`tr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TR2_SPEC;
+impl crate::RegisterSpec for TR2_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`c3tr2::R`](R) reader structure"]
-impl crate::Readable for C3TR2_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`c3tr2::W`](W) writer structure"]
-impl crate::Writable for C3TR2_SPEC {
+#[doc = "`read()` method returns [`tr2::R`](R) reader structure"]
+impl crate::Readable for TR2_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`tr2::W`](W) writer structure"]
+impl crate::Writable for TR2_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets C3TR2 to value 0"]
-impl crate::Resettable for C3TR2_SPEC {}
+#[doc = "`reset()` method sets TR2 to value 0"]
+impl crate::Resettable for TR2_SPEC {}

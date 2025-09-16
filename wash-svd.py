@@ -37,6 +37,12 @@ register_array(usb, 'CHEP0R', 'CHEPR[%s]', [f'CHEP{i}R' for i in range(8)]);
 for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
     usb.find(f".//field[name='{F}']/access").text = 'read-write'
 
+# DMA....
+dma = svd.find(".//peripheral[name='GPDMA1']")
+dma_ch_regs = ['LBAR', 'TR1', 'TR2', 'BR1', 'SAR', 'DAR', 'LLR']
+clusterfy(dma, 'C[%s]', dma_ch_regs,
+          [[f'C{i}{r}' for r in dma_ch_regs] for i in range(0, 8)])
+
 svd.write('washed.svd')
 
 assert os.path.exists('wash-svd.py')

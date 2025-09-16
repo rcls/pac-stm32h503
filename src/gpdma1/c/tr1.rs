@@ -1,7 +1,7 @@
-#[doc = "Register `C6TR1` reader"]
-pub type R = crate::R<C6TR1_SPEC>;
-#[doc = "Register `C6TR1` writer"]
-pub type W = crate::W<C6TR1_SPEC>;
+#[doc = "Register `TR1` reader"]
+pub type R = crate::R<TR1_SPEC>;
+#[doc = "Register `TR1` writer"]
+pub type W = crate::W<TR1_SPEC>;
 #[doc = "binary logarithm of the source data width of a burst in bytes Setting a 8-byte data width causes a user setting error to be reported and no transfer is issued. A source block size must be a multiple of the source data width (GPDMA_CxBR1.BNDT\\[2:0\\] versus SDW_LOG2\\[1:0\\]). Otherwise, a user setting error is reported and no transfer is issued. Note: A source burst transfer must have an aligned address with its data width (start address GPDMA_CxSAR\\[2:0\\] versus SDW_LOG2\\[1:0\\]). Otherwise, a user setting error is reported and none transfer is issued.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -678,75 +678,75 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - binary logarithm of the source data width of a burst in bytes Setting a 8-byte data width causes a user setting error to be reported and no transfer is issued. A source block size must be a multiple of the source data width (GPDMA_CxBR1.BNDT\\[2:0\\] versus SDW_LOG2\\[1:0\\]). Otherwise, a user setting error is reported and no transfer is issued. Note: A source burst transfer must have an aligned address with its data width (start address GPDMA_CxSAR\\[2:0\\] versus SDW_LOG2\\[1:0\\]). Otherwise, a user setting error is reported and none transfer is issued."]
     #[inline(always)]
-    pub fn SDW_LOG2(&mut self) -> SDW_LOG2_W<'_, C6TR1_SPEC> {
+    pub fn SDW_LOG2(&mut self) -> SDW_LOG2_W<'_, TR1_SPEC> {
         SDW_LOG2_W::new(self, 0)
     }
     #[doc = "Bit 3 - source incrementing burst The source address, pointed by GPDMA_CxSAR, is kept constant after a burst beat/single transfer or is incremented by the offset value corresponding to a contiguous data after a burst beat/single transfer."]
     #[inline(always)]
-    pub fn SINC(&mut self) -> SINC_W<'_, C6TR1_SPEC> {
+    pub fn SINC(&mut self) -> SINC_W<'_, TR1_SPEC> {
         SINC_W::new(self, 3)
     }
     #[doc = "Bits 4:9 - source burst length minus 1, between 0 and 63 The burst length unit is one data named beat within a burst. If SBL_1\\[5:0\\] =0 , the burst can be named as single. Each data/beat has a width defined by the destination data width SDW_LOG2\\[1:0\\]. Note: If a burst transfer crossed a 1-Kbyte address boundary on a AHB transfer, the GPDMA modifies and shortens the programmed burst into singles or bursts of lower length, to be compliant with the AHB protocol. Note: If a burst transfer is of length greater than the FIFO size of the channel x, the GPDMA modifies and shortens the programmed burst into singles or bursts of lower length, to be compliant with the FIFO size. Transfer performance is lower, with GPDMA re-arbitration between effective and lower singles/bursts, but the data integrity is guaranteed."]
     #[inline(always)]
-    pub fn SBL_1(&mut self) -> SBL_1_W<'_, C6TR1_SPEC> {
+    pub fn SBL_1(&mut self) -> SBL_1_W<'_, TR1_SPEC> {
         SBL_1_W::new(self, 4)
     }
     #[doc = "Bits 11:12 - padding/alignment mode If DDW_LOG2\\[1:0\\] = SDW_LOG2\\[1:0\\]: if the data width of a burst destination transfer is equal to the data width of a burst source transfer, these bits are ignored. Else, in the following enumerated values, the condition PAM_1 is when destination data width is higher that source data width, and the condition PAM_2 is when destination data width is higher than source data width. 1x: successive source data are FIFO queued and packed at the destination data width, in a left (LSB) to right (MSB) order (named little endian), before a destination transfer 1x: source data is FIFO queued and unpacked at the destination data width, to be transferred in a left (LSB) to right (MSB) order (named little endian) to the destination Note: If the transfer from the source peripheral is configured with peripheral flow-control mode (SWREQ = 0 and PFREQ = 1 and DREQ = 0), and if the destination data width the source data width, packing is not supported."]
     #[inline(always)]
-    pub fn PAM(&mut self) -> PAM_W<'_, C6TR1_SPEC> {
+    pub fn PAM(&mut self) -> PAM_W<'_, TR1_SPEC> {
         PAM_W::new(self, 11)
     }
     #[doc = "Bit 13 - source byte exchange within the unaligned half-word of each source word If the source data width is shorter than a word, this bit is ignored. If the source data width is a word:"]
     #[inline(always)]
-    pub fn SBX(&mut self) -> SBX_W<'_, C6TR1_SPEC> {
+    pub fn SBX(&mut self) -> SBX_W<'_, TR1_SPEC> {
         SBX_W::new(self, 13)
     }
     #[doc = "Bit 14 - source allocated port This bit is used to allocate the master port for the source transfer Note: This bit must be written when EN = 0. This bit is read-only when EN = 1."]
     #[inline(always)]
-    pub fn SAP(&mut self) -> SAP_W<'_, C6TR1_SPEC> {
+    pub fn SAP(&mut self) -> SAP_W<'_, TR1_SPEC> {
         SAP_W::new(self, 14)
     }
     #[doc = "Bits 16:17 - binary logarithm of the destination data width of a burst, in bytes Setting a 8-byte data width causes a user setting error to be reported and none transfer is issued. Note: A destination burst transfer must have an aligned address with its data width (start address GPDMA_CxDAR\\[2:0\\] and address offset GPDMA_CxTR3.DAO\\[2:0\\], versus DDW_LOG2\\[1:0\\]). Otherwise a user setting error is reported and no transfer is issued."]
     #[inline(always)]
-    pub fn DDW_LOG2(&mut self) -> DDW_LOG2_W<'_, C6TR1_SPEC> {
+    pub fn DDW_LOG2(&mut self) -> DDW_LOG2_W<'_, TR1_SPEC> {
         DDW_LOG2_W::new(self, 16)
     }
     #[doc = "Bit 19 - destination incrementing burst The destination address, pointed by GPDMA_CxDAR, is kept constant after a burst beat/single transfer, or is incremented by the offset value corresponding to a contiguous data after a burst beat/single transfer."]
     #[inline(always)]
-    pub fn DINC(&mut self) -> DINC_W<'_, C6TR1_SPEC> {
+    pub fn DINC(&mut self) -> DINC_W<'_, TR1_SPEC> {
         DINC_W::new(self, 19)
     }
     #[doc = "Bits 20:25 - destination burst length minus 1, between 0 and 63 The burst length unit is one data named beat within a burst. If DBL_1\\[5:0\\] =0 , the burst can be named as single. Each data/beat has a width defined by the destination data width DDW_LOG2\\[1:0\\]. Note: If a burst transfer crossed a 1-Kbyte address boundary on a AHB transfer, the GPDMA modifies and shortens the programmed burst into singles or bursts of lower length, to be compliant with the AHB protocol. Note: If a burst transfer is of length greater than the FIFO size of the channel x, the GPDMA modifies and shortens the programmed burst into singles or bursts of lower length, to be compliant with the FIFO size. Transfer performance is lower, with GPDMA re-arbitration between effective and lower singles/bursts, but the data integrity is guaranteed."]
     #[inline(always)]
-    pub fn DBL_1(&mut self) -> DBL_1_W<'_, C6TR1_SPEC> {
+    pub fn DBL_1(&mut self) -> DBL_1_W<'_, TR1_SPEC> {
         DBL_1_W::new(self, 20)
     }
     #[doc = "Bit 26 - destination byte exchange If the destination data size is a byte, this bit is ignored. If the destination data size is not a byte:"]
     #[inline(always)]
-    pub fn DBX(&mut self) -> DBX_W<'_, C6TR1_SPEC> {
+    pub fn DBX(&mut self) -> DBX_W<'_, TR1_SPEC> {
         DBX_W::new(self, 26)
     }
     #[doc = "Bit 27 - destination half-word exchange If the destination data size is shorter than a word, this bit is ignored. If the destination data size is a word:"]
     #[inline(always)]
-    pub fn DHX(&mut self) -> DHX_W<'_, C6TR1_SPEC> {
+    pub fn DHX(&mut self) -> DHX_W<'_, TR1_SPEC> {
         DHX_W::new(self, 27)
     }
     #[doc = "Bit 30 - destination allocated port This bit is used to allocate the master port for the destination transfer Note: This bit must be written when EN = 0. This bit is read-only when EN = 1."]
     #[inline(always)]
-    pub fn DAP(&mut self) -> DAP_W<'_, C6TR1_SPEC> {
+    pub fn DAP(&mut self) -> DAP_W<'_, TR1_SPEC> {
         DAP_W::new(self, 30)
     }
 }
-#[doc = "GPDMA channel 6 transfer register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`c6tr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`c6tr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct C6TR1_SPEC;
-impl crate::RegisterSpec for C6TR1_SPEC {
+#[doc = "GPDMA channel 0 transfer register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`tr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`tr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct TR1_SPEC;
+impl crate::RegisterSpec for TR1_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`c6tr1::R`](R) reader structure"]
-impl crate::Readable for C6TR1_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`c6tr1::W`](W) writer structure"]
-impl crate::Writable for C6TR1_SPEC {
+#[doc = "`read()` method returns [`tr1::R`](R) reader structure"]
+impl crate::Readable for TR1_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`tr1::W`](W) writer structure"]
+impl crate::Writable for TR1_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets C6TR1 to value 0"]
-impl crate::Resettable for C6TR1_SPEC {}
+#[doc = "`reset()` method sets TR1 to value 0"]
+impl crate::Resettable for TR1_SPEC {}
