@@ -2,6 +2,13 @@
 
 import xml.etree.ElementTree as ET
 
+def get_text(n, f='name'):
+    return n.find(f).text
+def num_field(n, f):
+    return int(n.find(f).text, 0)
+def addressoffset(n):
+    return num_field(n, 'addressOffset')
+
 def deprefix(svd, alternates_remove, alternates_keep):
     for registers in svd.findall('.//registers'):
         for register in registers.findall('register'):
@@ -17,7 +24,7 @@ def deprefix(svd, alternates_remove, alternates_keep):
             assert not 'ALTERNATE' in name, f'??? {name}'
 
     for peripheral in svd.findall('.//peripheral'):
-        print(peripheral.find('name').text)
+        print(get_text(peripheral))
         names = []
         for register in peripheral.findall('registers/register'):
             names.append(register.find('name'))
@@ -79,12 +86,12 @@ def peripheral_derivatives(svd, prototype: str, derived: [str]):
         periph = peripherals.find(f"peripheral[name='{d}']")
         assert periph != proto
         periph.set('derivedFrom', prototype)
+        for r in periph.findall('registers/register'):
+            name = get_text(r)
+            s = prototype.find("registers/register[name='{name}']")
+            assert s != None
+            assert num_field(r, 'size') == num_field(s, 'size')
         periph.remove(periph.find('registers'))
-
-def num_field(n, f):
-    return int(n.find(f).text, 0)
-def addressoffset(n):
-    return num_field(n, 'addressOffset')
 
 def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
               proto_index:int = 0):
@@ -93,7 +100,7 @@ def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
 
     reg_by_name = {}
     for r in registers.findall('register'):
-        reg_by_name[r.find('name').text] = r
+        reg_by_name[get_text(r)] = r
     #print(reg_by_name)
 
     for r in replaced:
@@ -119,6 +126,8 @@ def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
             assert addressoffset(r) - addressoffset(s) \
                 == stride * (i - proto_index)
             assert num_field(r, 'size') == num_field(s, 'size')
+            assert get_text(r, 'resetValue') == get_text(s, 'resetValue') \
+                or num_field(s, 'resetValue') == 0
     # Now build the cluster.
     # Ugh...  place it in order.
     index = None
