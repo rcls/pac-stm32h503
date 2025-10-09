@@ -67,7 +67,7 @@ def register_array(peripheral, first, pattern, items, increment = None):
         if name != first and name.text in items:
             registers.remove(r)
 
-def register_derivatives(peripheral, prototype: str, derived: [str]):
+def register_derivatives(peripheral, prototype: str, derived: list[str]):
     registers = peripheral.find('registers')
     assert registers is not None
     proto = registers.find(f"register[name='{prototype}']")
@@ -78,7 +78,7 @@ def register_derivatives(peripheral, prototype: str, derived: [str]):
         reg.set('derivedFrom', prototype)
         reg.remove(reg.find('fields'))
 
-def peripheral_derivatives(svd, prototype: str, derived: [str]):
+def peripheral_derivatives(svd, prototype: str, derived: list[str]):
     peripherals = svd.find('.//peripherals')
     proto = peripherals.find(f"peripheral[name='{prototype}']")
     assert proto is not None
@@ -93,7 +93,8 @@ def peripheral_derivatives(svd, prototype: str, derived: [str]):
             assert num_field(r, 'size') == num_field(s, 'size')
         periph.remove(periph.find('registers'))
 
-def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
+def clusterfy(peripheral,
+              name: str, fields: list[str], replaced: list[list[str]],
               proto_index:int = 0):
     registers = peripheral.find('registers')
     assert registers is not None
@@ -149,8 +150,9 @@ def clusterfy(peripheral, name: str, fields: [str], replaced: [[str]],
     ET.SubElement(cluster, 'description').text = f'Cluster for {name}'
     ET.SubElement(cluster, 'addressOffset').text = f'{base:#x}'
     proto_base = addressoffset(rep_regs[proto_index][0])
-    for r, n in zip(rep_regs[proto_index], fields):
+    for r, name in zip(rep_regs[proto_index], fields):
+        assert r is not None
         cluster.append(r)
-        r.find('name').text = n
-        r.find('displayName').text = n
+        r.find('name').text = name
+        r.find('displayName').text = name
         r.find('addressOffset').text = hex(addressoffset(r) - proto_base)

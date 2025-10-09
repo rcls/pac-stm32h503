@@ -31,6 +31,7 @@ alternates_keep = {
 deprefix(svd, alternates_remove, alternates_keep)
 
 usb = svd.find(".//peripheral[name='USB']")
+assert usb is not None
 register_array(usb, 'CHEP0R', 'CHEPR[%s]', [f'CHEP{i}R' for i in range(8)]);
 
 gtzc1 = svd.find(".//peripheral[name='GTZC1']")
@@ -41,7 +42,9 @@ register_array(gtzc1, 'MPCBB2_PRIVCFGR0', 'MPCBB2_PRIVCFGR[%s]',
 
 # Change the access on USB fields to read-write.
 for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
-    usb.find(f".//field[name='{F}']/access").text = 'read-write'
+    field = usb.find(f".//field[name='{F}']/access")
+    assert field is not None
+    field.text = 'read-write'
 
 # DMA....
 dma = svd.find(".//peripheral[name='GPDMA1']")
