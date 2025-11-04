@@ -1,7 +1,7 @@
-#[doc = "Register `2WPR1` reader"]
-pub type R = crate::R<_2WPR1_SPEC>;
-#[doc = "Register `2WPR1` writer"]
-pub type W = crate::W<_2WPR1_SPEC>;
+#[doc = "Register `M2WPR1` reader"]
+pub type R = crate::R<M2WPR1_SPEC>;
+#[doc = "Register `M2WPR1` writer"]
+pub type W = crate::W<M2WPR1_SPEC>;
 #[doc = "SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum P0WP_A {
@@ -935,95 +935,95 @@ impl R {
 impl W {
     #[doc = "Bit 0 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P0WP(&mut self) -> P0WP_W<'_, _2WPR1_SPEC> {
+    pub fn P0WP(&mut self) -> P0WP_W<'_, M2WPR1_SPEC> {
         P0WP_W::new(self, 0)
     }
     #[doc = "Bit 1 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P1WP(&mut self) -> P1WP_W<'_, _2WPR1_SPEC> {
+    pub fn P1WP(&mut self) -> P1WP_W<'_, M2WPR1_SPEC> {
         P1WP_W::new(self, 1)
     }
     #[doc = "Bit 2 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P2WP(&mut self) -> P2WP_W<'_, _2WPR1_SPEC> {
+    pub fn P2WP(&mut self) -> P2WP_W<'_, M2WPR1_SPEC> {
         P2WP_W::new(self, 2)
     }
     #[doc = "Bit 3 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P3WP(&mut self) -> P3WP_W<'_, _2WPR1_SPEC> {
+    pub fn P3WP(&mut self) -> P3WP_W<'_, M2WPR1_SPEC> {
         P3WP_W::new(self, 3)
     }
     #[doc = "Bit 4 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P4WP(&mut self) -> P4WP_W<'_, _2WPR1_SPEC> {
+    pub fn P4WP(&mut self) -> P4WP_W<'_, M2WPR1_SPEC> {
         P4WP_W::new(self, 4)
     }
     #[doc = "Bit 5 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P5WP(&mut self) -> P5WP_W<'_, _2WPR1_SPEC> {
+    pub fn P5WP(&mut self) -> P5WP_W<'_, M2WPR1_SPEC> {
         P5WP_W::new(self, 5)
     }
     #[doc = "Bit 6 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P6WP(&mut self) -> P6WP_W<'_, _2WPR1_SPEC> {
+    pub fn P6WP(&mut self) -> P6WP_W<'_, M2WPR1_SPEC> {
         P6WP_W::new(self, 6)
     }
     #[doc = "Bit 7 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P7WP(&mut self) -> P7WP_W<'_, _2WPR1_SPEC> {
+    pub fn P7WP(&mut self) -> P7WP_W<'_, M2WPR1_SPEC> {
         P7WP_W::new(self, 7)
     }
     #[doc = "Bit 8 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P8WP(&mut self) -> P8WP_W<'_, _2WPR1_SPEC> {
+    pub fn P8WP(&mut self) -> P8WP_W<'_, M2WPR1_SPEC> {
         P8WP_W::new(self, 8)
     }
     #[doc = "Bit 9 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P9WP(&mut self) -> P9WP_W<'_, _2WPR1_SPEC> {
+    pub fn P9WP(&mut self) -> P9WP_W<'_, M2WPR1_SPEC> {
         P9WP_W::new(self, 9)
     }
     #[doc = "Bit 10 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P10WP(&mut self) -> P10WP_W<'_, _2WPR1_SPEC> {
+    pub fn P10WP(&mut self) -> P10WP_W<'_, M2WPR1_SPEC> {
         P10WP_W::new(self, 10)
     }
     #[doc = "Bit 11 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P11WP(&mut self) -> P11WP_W<'_, _2WPR1_SPEC> {
+    pub fn P11WP(&mut self) -> P11WP_W<'_, M2WPR1_SPEC> {
         P11WP_W::new(self, 11)
     }
     #[doc = "Bit 12 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P12WP(&mut self) -> P12WP_W<'_, _2WPR1_SPEC> {
+    pub fn P12WP(&mut self) -> P12WP_W<'_, M2WPR1_SPEC> {
         P12WP_W::new(self, 12)
     }
     #[doc = "Bit 13 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P13WP(&mut self) -> P13WP_W<'_, _2WPR1_SPEC> {
+    pub fn P13WP(&mut self) -> P13WP_W<'_, M2WPR1_SPEC> {
         P13WP_W::new(self, 13)
     }
     #[doc = "Bit 14 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P14WP(&mut self) -> P14WP_W<'_, _2WPR1_SPEC> {
+    pub fn P14WP(&mut self) -> P14WP_W<'_, M2WPR1_SPEC> {
         P14WP_W::new(self, 14)
     }
     #[doc = "Bit 15 - SRAM2 1-Kbyte page y write protection These bits are set by software and cleared only by a global RAMCFG reset."]
     #[inline(always)]
-    pub fn P15WP(&mut self) -> P15WP_W<'_, _2WPR1_SPEC> {
+    pub fn P15WP(&mut self) -> P15WP_W<'_, M2WPR1_SPEC> {
         P15WP_W::new(self, 15)
     }
 }
-#[doc = "RAMCFG memory 2 write protection register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`_2wpr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`_2wpr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct _2WPR1_SPEC;
-impl crate::RegisterSpec for _2WPR1_SPEC {
+#[doc = "RAMCFG memory 2 write protection register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`m2wpr1::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`m2wpr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M2WPR1_SPEC;
+impl crate::RegisterSpec for M2WPR1_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`_2wpr1::R`](R) reader structure"]
-impl crate::Readable for _2WPR1_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`_2wpr1::W`](W) writer structure"]
-impl crate::Writable for _2WPR1_SPEC {
+#[doc = "`read()` method returns [`m2wpr1::R`](R) reader structure"]
+impl crate::Readable for M2WPR1_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`m2wpr1::W`](W) writer structure"]
+impl crate::Writable for M2WPR1_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets 2WPR1 to value 0"]
-impl crate::Resettable for _2WPR1_SPEC {}
+#[doc = "`reset()` method sets M2WPR1 to value 0"]
+impl crate::Resettable for M2WPR1_SPEC {}

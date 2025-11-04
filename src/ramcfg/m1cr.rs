@@ -1,7 +1,7 @@
-#[doc = "Register `5CR` reader"]
-pub type R = crate::R<_5CR_SPEC>;
-#[doc = "Register `5CR` writer"]
-pub type W = crate::W<_5CR_SPEC>;
+#[doc = "Register `M1CR` reader"]
+pub type R = crate::R<M1CR_SPEC>;
+#[doc = "Register `M1CR` writer"]
+pub type W = crate::W<M1CR_SPEC>;
 #[doc = "ECC enable. This bit reset value is defined by the user option bit configuration. When set, it can be cleared by software only after writing the unlock sequence in the RAMCFG_MxECCKEYR register. Note: This bit is reserved and must be kept at reset value in SRAM1 control register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ECCE_A {
@@ -181,30 +181,30 @@ impl R {
 impl W {
     #[doc = "Bit 0 - ECC enable. This bit reset value is defined by the user option bit configuration. When set, it can be cleared by software only after writing the unlock sequence in the RAMCFG_MxECCKEYR register. Note: This bit is reserved and must be kept at reset value in SRAM1 control register."]
     #[inline(always)]
-    pub fn ECCE(&mut self) -> ECCE_W<'_, _5CR_SPEC> {
+    pub fn ECCE(&mut self) -> ECCE_W<'_, M1CR_SPEC> {
         ECCE_W::new(self, 0)
     }
     #[doc = "Bit 4 - Address latch enable Note: This bit is reserved and must be kept at reset value in SRAM1 control register."]
     #[inline(always)]
-    pub fn ALE(&mut self) -> ALE_W<'_, _5CR_SPEC> {
+    pub fn ALE(&mut self) -> ALE_W<'_, M1CR_SPEC> {
         ALE_W::new(self, 4)
     }
     #[doc = "Bit 8 - SRAM erase This bit can be set by software only after writing the unlock sequence in the ERASEKEY field of the RAMCFG_MxERKEYR register. Setting this bit starts the SRAM erase. This bit is automatically cleared by hardware at the end of the erase operation."]
     #[inline(always)]
-    pub fn SRAMER(&mut self) -> SRAMER_W<'_, _5CR_SPEC> {
+    pub fn SRAMER(&mut self) -> SRAMER_W<'_, M1CR_SPEC> {
         SRAMER_W::new(self, 8)
     }
 }
-#[doc = "RAMCFG memory 5 control register\n\nYou can [`read`](crate::Reg::read) this register and get [`_5cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`_5cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct _5CR_SPEC;
-impl crate::RegisterSpec for _5CR_SPEC {
+#[doc = "RAMCFG memory 1 control register\n\nYou can [`read`](crate::Reg::read) this register and get [`m1cr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`m1cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M1CR_SPEC;
+impl crate::RegisterSpec for M1CR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`_5cr::R`](R) reader structure"]
-impl crate::Readable for _5CR_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`_5cr::W`](W) writer structure"]
-impl crate::Writable for _5CR_SPEC {
+#[doc = "`read()` method returns [`m1cr::R`](R) reader structure"]
+impl crate::Readable for M1CR_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`m1cr::W`](W) writer structure"]
+impl crate::Writable for M1CR_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets 5CR to value 0"]
-impl crate::Resettable for _5CR_SPEC {}
+#[doc = "`reset()` method sets M1CR to value 0"]
+impl crate::Resettable for M1CR_SPEC {}

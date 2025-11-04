@@ -40,7 +40,7 @@ def deprefix(svd, alternates_remove, alternates_keep):
         print(f' {common_prefix}')
         if common_prefix is None or not '_' in common_prefix:
             continue
-        common_prefix == common_prefix.rsplit('_', 1)[0] + '_'
+        common_prefix = common_prefix.rsplit('_', 1)[0] + '_'
         for name in names:
             name.text = name.text.removeprefix(common_prefix)
 

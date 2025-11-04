@@ -1,7 +1,7 @@
-#[doc = "Register `2IER` reader"]
-pub type R = crate::R<_2IER_SPEC>;
-#[doc = "Register `2IER` writer"]
-pub type W = crate::W<_2IER_SPEC>;
+#[doc = "Register `M5IER` reader"]
+pub type R = crate::R<M5IER_SPEC>;
+#[doc = "Register `M5IER` writer"]
+pub type W = crate::W<M5IER_SPEC>;
 #[doc = "ECC single error interrupt enable\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEIE_A {
@@ -181,30 +181,30 @@ impl R {
 impl W {
     #[doc = "Bit 0 - ECC single error interrupt enable"]
     #[inline(always)]
-    pub fn SEIE(&mut self) -> SEIE_W<'_, _2IER_SPEC> {
+    pub fn SEIE(&mut self) -> SEIE_W<'_, M5IER_SPEC> {
         SEIE_W::new(self, 0)
     }
     #[doc = "Bit 1 - ECC double error interrupt enable"]
     #[inline(always)]
-    pub fn DEIE(&mut self) -> DEIE_W<'_, _2IER_SPEC> {
+    pub fn DEIE(&mut self) -> DEIE_W<'_, M5IER_SPEC> {
         DEIE_W::new(self, 1)
     }
     #[doc = "Bit 3 - Double error NMI This bit is set by software and cleared only by a global RAMCFG reset. Note: if ECCNMI is set, the RAMCFG maskable interrupt is not generated whatever DEIE bit value."]
     #[inline(always)]
-    pub fn ECCNMI(&mut self) -> ECCNMI_W<'_, _2IER_SPEC> {
+    pub fn ECCNMI(&mut self) -> ECCNMI_W<'_, M5IER_SPEC> {
         ECCNMI_W::new(self, 3)
     }
 }
-#[doc = "RAMCFG memory 2 interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`_2ier::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`_2ier::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct _2IER_SPEC;
-impl crate::RegisterSpec for _2IER_SPEC {
+#[doc = "RAMCFG memory 5 interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`m5ier::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`m5ier::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M5IER_SPEC;
+impl crate::RegisterSpec for M5IER_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`_2ier::R`](R) reader structure"]
-impl crate::Readable for _2IER_SPEC {}
-#[doc = "`write(|w| ..)` method takes [`_2ier::W`](W) writer structure"]
-impl crate::Writable for _2IER_SPEC {
+#[doc = "`read()` method returns [`m5ier::R`](R) reader structure"]
+impl crate::Readable for M5IER_SPEC {}
+#[doc = "`write(|w| ..)` method takes [`m5ier::W`](W) writer structure"]
+impl crate::Writable for M5IER_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets 2IER to value 0"]
-impl crate::Resettable for _2IER_SPEC {}
+#[doc = "`reset()` method sets M5IER to value 0"]
+impl crate::Resettable for M5IER_SPEC {}

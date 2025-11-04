@@ -1,22 +1,22 @@
-#[doc = "Register `4ERKEYR` writer"]
-pub type W = crate::W<_4ERKEYR_SPEC>;
+#[doc = "Register `M5ERKEYR` writer"]
+pub type W = crate::W<M5ERKEYR_SPEC>;
 #[doc = "Field `ERASEKEY` writer - Erase write protection key The following steps are required to unlock the write protection of the SRAMER bit in the RAMCFG_MxCR register. 1) Write 0xCA into ERASEKEY\\[7:0\\]. 2) Write 0x53 into ERASEKEY\\[7:0\\]. Note: Writing a wrong key reactivates the write protection."]
 pub type ERASEKEY_W<'a, REG> = crate::FieldWriter<'a, REG, 8>;
 impl W {
     #[doc = "Bits 0:7 - Erase write protection key The following steps are required to unlock the write protection of the SRAMER bit in the RAMCFG_MxCR register. 1) Write 0xCA into ERASEKEY\\[7:0\\]. 2) Write 0x53 into ERASEKEY\\[7:0\\]. Note: Writing a wrong key reactivates the write protection."]
     #[inline(always)]
-    pub fn ERASEKEY(&mut self) -> ERASEKEY_W<'_, _4ERKEYR_SPEC> {
+    pub fn ERASEKEY(&mut self) -> ERASEKEY_W<'_, M5ERKEYR_SPEC> {
         ERASEKEY_W::new(self, 0)
     }
 }
-#[doc = "RAMCFG memory 4 erase key register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`_4erkeyr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct _4ERKEYR_SPEC;
-impl crate::RegisterSpec for _4ERKEYR_SPEC {
+#[doc = "RAMCFG memory 5 erase key register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`m5erkeyr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M5ERKEYR_SPEC;
+impl crate::RegisterSpec for M5ERKEYR_SPEC {
     type Ux = u32;
 }
-#[doc = "`write(|w| ..)` method takes [`_4erkeyr::W`](W) writer structure"]
-impl crate::Writable for _4ERKEYR_SPEC {
+#[doc = "`write(|w| ..)` method takes [`m5erkeyr::W`](W) writer structure"]
+impl crate::Writable for M5ERKEYR_SPEC {
     type Safety = crate::Safe;
 }
-#[doc = "`reset()` method sets 4ERKEYR to value 0"]
-impl crate::Resettable for _4ERKEYR_SPEC {}
+#[doc = "`reset()` method sets M5ERKEYR to value 0"]
+impl crate::Resettable for M5ERKEYR_SPEC {}

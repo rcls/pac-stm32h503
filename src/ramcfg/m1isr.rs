@@ -1,5 +1,5 @@
-#[doc = "Register `3ISR` reader"]
-pub type R = crate::R<_3ISR_SPEC>;
+#[doc = "Register `M1ISR` reader"]
+pub type R = crate::R<M1ISR_SPEC>;
 #[doc = "ECC single error detected and corrected Note: This bit is reserved and must be kept at reset value in SRAM1 interrupt status register.\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum SEDC_A {
@@ -125,12 +125,12 @@ impl R {
         SRAMBUSY_R::new(((self.bits >> 8) & 1) != 0)
     }
 }
-#[doc = "RAMCFG memory interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`_3isr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct _3ISR_SPEC;
-impl crate::RegisterSpec for _3ISR_SPEC {
+#[doc = "RAMCFG memory interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`m1isr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct M1ISR_SPEC;
+impl crate::RegisterSpec for M1ISR_SPEC {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`_3isr::R`](R) reader structure"]
-impl crate::Readable for _3ISR_SPEC {}
-#[doc = "`reset()` method sets 3ISR to value 0"]
-impl crate::Resettable for _3ISR_SPEC {}
+#[doc = "`read()` method returns [`m1isr::R`](R) reader structure"]
+impl crate::Readable for M1ISR_SPEC {}
+#[doc = "`reset()` method sets M1ISR to value 0"]
+impl crate::Resettable for M1ISR_SPEC {}
