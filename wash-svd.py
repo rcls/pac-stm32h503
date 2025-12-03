@@ -3,10 +3,9 @@
 import xml.etree.ElementTree as ET
 import os, shutil, subprocess, sys
 
-from svdwash import (clusterfy, deprefix, peripheral_derivatives,
-                     register_array, register_derivatives)
+import svdwash
+from svdwash import clusterfy, peripheral_derivatives, register_array
 
-SVD2RUST='/home/mirror/svd2rust/target/debug/svd2rust'
 
 scriptdir = os.path.dirname(sys.argv[0])
 if scriptdir != '':
@@ -28,13 +27,14 @@ alternates_keep = {
     'LPUART_ISR_enabled': 'LPUART_ISR',
 }
 
-deprefix(svd, alternates_remove, alternates_keep)
+svdwash.deprefix(svd, alternates_remove, alternates_keep)
 
 usb = svd.find(".//peripheral[name='USB']")
 assert usb is not None
 register_array(usb, 'CHEP0R', 'CHEPR[%s]', [f'CHEP{i}R' for i in range(8)]);
 
 gtzc1 = svd.find(".//peripheral[name='GTZC1']")
+assert gtzc1 is not None
 register_array(gtzc1, 'MPCBB1_PRIVCFGR0', 'MPCBB1_PRIVCFGR[%s]',
                [f'MPCBB1_PRIVCFGR{i}' for i in range(32)]);
 register_array(gtzc1, 'MPCBB2_PRIVCFGR0', 'MPCBB2_PRIVCFGR[%s]',
@@ -48,6 +48,7 @@ for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
 
 # DMA....
 dma = svd.find(".//peripheral[name='GPDMA1']")
+assert dma is not None
 dma_ch_regs = ['LBAR', 'FCR', 'SR', 'CR', 'TR1', 'TR2', 'BR1', 'SAR', 'DAR',
                'TR3', 'BR2', 'LLR']
 clusterfy(dma, 'C[%s]', dma_ch_regs,
@@ -56,24 +57,4 @@ clusterfy(dma, 'C[%s]', dma_ch_regs,
 
 #peripheral_derivatives(svd, 'GPIOA', ['GPIOB', 'GPIOC', 'GPIOH'])
 
-svd.write('washed.svd')
-
-assert os.path.exists('wash-svd.py')
-
-shutil.rmtree('raw', ignore_errors=True)
-shutil.rmtree('src', ignore_errors=True)
-os.mkdir('raw')
-os.mkdir('src')
-
-subprocess.run([SVD2RUST, '--ident-formats-theme', 'legacy',
-                '-f', 'register_accessor:::',
-                '-f', 'field_accessor:::',
-                '-f', 'enum_value:::',
-                '-f', 'enum_value_accessor:::',
-                '-f', 'cluster_accessor:::',
-                #'-f', 'peripheral_mod:::',
-                '-o', 'raw', '-i', 'washed.svd'],
-               check=True)
-subprocess.run(['form', '-i', 'raw/lib.rs', '-o', 'src'])
-subprocess.run(
-    ['rustfmt', '--edition', '2021', '--emit', 'files', 'src/lib.rs'])
+svdwash.output_and_generate(svd)
