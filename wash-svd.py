@@ -20,12 +20,11 @@ alternates_remove = {
     'LPUART_CR1_disabled',
     'LPUART_ISR_disabled',
 }
-alternates_keep = {
-    'USART_CR1_enabled': 'USART_CR1',
-    'USART_ISR_enabled': 'USART_ISR',
-    'LPUART_CR1_enabled': 'LPUART_CR1',
-    'LPUART_ISR_enabled': 'LPUART_ISR',
-}
+alternates_keep = dict(
+    USART_CR1_enabled  = 'USART_CR1',
+    USART_ISR_enabled  = 'USART_ISR',
+    LPUART_CR1_enabled = 'LPUART_CR1',
+    LPUART_ISR_enabled = 'LPUART_ISR')
 
 svdwash.deprefix(svd, alternates_remove, alternates_keep)
 
@@ -49,8 +48,7 @@ for F in 'DTOGRX', 'DTOGTX', 'STATRX', 'STATTX':
 # DMA....
 dma = svd.find(".//peripheral[name='GPDMA1']")
 assert dma is not None
-dma_ch_regs = ['LBAR', 'FCR', 'SR', 'CR', 'TR1', 'TR2', 'BR1', 'SAR', 'DAR',
-               'TR3', 'BR2', 'LLR']
+dma_ch_regs = 'LBAR FCR SR CR TR1 TR2 BR1 SAR DAR TR3 BR2 LLR'.split()
 clusterfy(dma, 'C[%s]', dma_ch_regs,
           [[f'C{i}{r}' for r in dma_ch_regs] for i in range(0, 8)],
           proto_index = 7)
